@@ -1,24 +1,28 @@
+package tests;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-public class redirectTest {
-
-        @Test
-                public void redirectTest(){
+public class longRedirectTest {
+    @Test
+    public void longRedirectTest(){
+        int statusCode;
+        String location = "https://playground.learnqa.ru/api/long_redirect";
+        do {
             Response response = RestAssured
                     .given()
                     .redirects()
                     .follow(false)
                     .when()
-                    .get("https://playground.learnqa.ru/api/long_redirect")
+                    .get(location)
                     .andReturn();
 
-            String location = response.getHeader("Location");
+            location = response.getHeader("Location");
             System.out.println("Redirect: " + location);
 
-            int statusCode = response.getStatusCode();
+            statusCode = response.getStatusCode();
             System.out.println("StatusCode: " + statusCode);
-        }
-
+        }while (statusCode!=200);
+    }
 }

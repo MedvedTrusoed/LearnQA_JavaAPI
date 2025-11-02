@@ -1,8 +1,8 @@
+package tests;
+
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
 
 public class JSONParseTest {
     @Test
