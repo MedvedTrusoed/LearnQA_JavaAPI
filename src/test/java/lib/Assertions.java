@@ -25,6 +25,7 @@ public class Assertions {
                 Response.asString(),
                 "Response text is not expected");
     }
+
     public static void assertResponseCodeEquals(Response Response, int expectedStatusCode) {
         assertEquals(expectedStatusCode,
                 Response.statusCode(),

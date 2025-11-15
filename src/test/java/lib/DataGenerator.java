@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class DataGenerator {
     public static String getRandomEmail() {
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new java.util.Date());
+        String timestamp = String.valueOf(System.currentTimeMillis());
         return "learnqa"+timestamp+"@example.com";
     }
 
